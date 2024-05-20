@@ -1,3 +1,29 @@
+/*
+//--------------------FUNCTION DECLARATIO ---------------
+function sum(a, b) {
+  let c = a + b;
+
+  //by deafult if function is not returning anything it returns undefined
+}
+*/
+
+//--------------------FUNCTION EXPRESSION--------------------
+
+// const sum = function (a, b) {
+//   return a + b;
+// };
+
+//-------------------REST OPERATOR -----------------
+// ->    ... -> rest operator
+
+function addmissionToSchool(name, standard, ...info) {
+  const student = {
+    name: name,
+    standrad: standard,
+    address: info[0],
+  };
+}
+
 // function ucFirst(str) {
 //   let newStr = str[0].toUpperCase() + str.slice(1);
 //   return newStr;
@@ -114,9 +140,24 @@ const obj1 = {
     class: "12",
   },
 };
+/*
+let str = "background-color";
 
+console.log(str.split("-").slice(1));
+
+function camel(str) {
+  return str
+    .split("-")
+    .map((value, index) =>
+      index === 0 ? value : value[0].toUpperCase() + value.slice(1)
+    )
+    .join("");
+}
+
+console.log(camel("-webkit-transition"));
+*/
 // console.log(obj1.obj.myFunction());
-obj1.obj.myFunction().printAge();
+// obj1.obj.myFunction().printAge();
 // const obj = {
 //   id: 322,
 //   name: "abhishek",
@@ -135,3 +176,24 @@ obj1.obj.myFunction().printAge();
 // console.log(obj.myFunction());
 // obj.myFunction();
 // obj.myFunction().printAge();
+
+function camelize(str) {
+  return str
+    .split("-")
+    .map((word, index) =>
+      index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join("");
+}
+
+// console.log(camelize("background-color"));
+
+function filterRange(arr, a, b) {
+  return arr.filter((item) => a <= item && item <= b);
+}
+
+// let arr = [5, 6, 8, 1];
+
+// console.log(filterRange(arr, 1, 5));
+
+// console.log(arr.sort((a, b) => b - a));

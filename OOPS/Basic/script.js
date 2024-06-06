@@ -319,10 +319,16 @@ class Circle {
 const c1 = new Circle(100);
 
 console.log(c1);
-c1.draw();
+// c1.draw();
+//c1 is instance of circle class
+//draw, radius these are instance properties
 
-console.log(c1 instanceof Circle, "instance of circle");
-console.log(c1 instanceof Object, "instance of object");
+Circle.parse(); //only static method can be called without making instance
+// Circle.draw(); //not a function
+
+//___________________________________________________________
+// console.log(c1 instanceof Circle, "instance of circle");
+// console.log(c1 instanceof Object, "instance of object");
 // ***************************************************
 
 class User {

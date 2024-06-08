@@ -86,9 +86,15 @@ let obj1 = {
 ----- 2. apply
 ----- 3. bind
 
+Call and apply are pretty interchangeable. Both execute the current function immediately. You
+need to decide whether it’s easier to send in an array or a comma separated list of arguments.
+You can remember by treating Call is for comma (separated list) and Apply is for Array.
+Whereas Bind creates a new function that will have this set to the first parameter passed to
+bind()
 */
 
 //EXAMPLE 1 - call
+//Call: The call() method invokes a function with a given this value and arguments provided one by one
 
 /*
 const obj1 = {
@@ -114,6 +120,7 @@ obj1.func.call(obj2, 22, 222);
 */
 
 // EXAMPLE - apply
+//Apply: Invokes the function with a given this value and allows you to pass in arguments as an array
 /*
 const obj1 = {
   name: "utkarsh",
@@ -140,6 +147,7 @@ obj1.func.apply(obj2, [22, 222]);
 
 */
 //----EXAMPLE -3 ------------
+//BIND: returns a new function, allowing you to pass any number of arguments
 
 const obj = {
   name: "utkarsh",

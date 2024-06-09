@@ -37,7 +37,8 @@ console.log("c");
 //-------------- handler -------------
 //  .then -> consumes (data)
 //  .catch -> consumes (error)
-//  .finally -> will run after the then and catch
+//  .finally -> will run after the then and catch, can be called as cleanup after promise is fulfilled or rejected
+//  finally doesnot have any argument ... A finally handler also shouldn’t return anything. If it does, the returned value is silently ignored.
 
 /*
 console.log("a");

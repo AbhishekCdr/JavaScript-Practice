@@ -25,12 +25,14 @@ function displayProduct(product) {
           margin: 10px;
           height: 300px;
           background-color: beige;
+          overflow: hidden;
         "
       >
         <img
           src="${image}"
           alt="${id}"
           style="height: 120px;"
+
 
         />
         <p>${title}</p>

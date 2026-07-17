@@ -6,51 +6,61 @@ in js Context is this Keyword
 
 //1. DEFAULT BINDING.
 
-// function foo() {
-//   console.log("inside function", this);
-// }
-// foo(); //this is a function call site ->YES!
+function foo() {
+  console.log("inside function", this);
+}
+foo(); //this is a function call site ->YES!
 //have i given extra information -> NO!
 
 //2. IMPLICIT BINDING. -> JS is doing hardwork to determine the context
 
-// const obj = {
-//   name: "utkarsh",
-//   class: 12,
-//   rollNumber: 99,
-//   func: function () {
-//     // context -> this -> obj
+const obj = {
+  name: "utkarsh",
+  class: 12,
+  rollNumber: 99,
+  func: function () {
+    // context -> this -> obj
 
-//     console.log("hello");
-//     console.log(this); // obj
-//     console.log(this.name); // utkarsh
-//     console.log(this.rollNumber); // 99
-//   },
-// };
+    console.log("hello");
+    console.log(this); // obj
+    console.log(this.name); // utkarsh
+    console.log(this.rollNumber); // 99
+  },
+};
 
-// console.log(obj.name);
-//obj.func(); //this is a call side -YES
+console.log(obj.name);
+obj.func(); //this is a call side -YES
 //have i given extra information - YES
 
 //example 3-------------------------
-/*
-let obj = {
-  name: "akash",
-  rollNumber: 12,
-  func: function () {
-    // contenxt -> this -> window
-    console.log(this, "context"); // window
-    console.log(`hello my name is ${this.name}`); // undefined
-  },
-};
-const funcCopy = obj.func; // is this a call site ? NO.
-*/
 
+// let obj = {
+//   name: "akash",
+//   rollNumber: 12,
+//   func: function () {
+//     // contenxt -> this -> window
+//     console.log(this, "context"); // window
+//     // this.name = "Abhishek";
+//     console.log(`hello my name is ${this.name}`); // undefined
+//   },
+// };
+
+// obj.func();
+
+// const funcCopy = obj.func; // is this a call site ? NO.
+/*
+This will equates to 
+const funcCopy = function () {
+  console.log(this);
+};
+*/
 // funcCopy(); // is this a call site ? YES
 //this will be window object
 
+// this is determined by the call side not where the function is defined
+
 // -----------EXAMPLE-4--------------
-/*
+
 function func() {
   console.log("outside", this);
 }
@@ -68,11 +78,10 @@ let obj1 = {
   rollNumber: 99,
   obj2: obj2,
 };
-*/
 
-// obj2.func()
+obj2.func();
 
-// obj1.obj2.func(); // is it legin call  ? YEs
+obj1.obj2.func(); // is it legin call  ? YEs
 // is this a call site? YES
 // Have I given any extra infromation ? YEs -> OBJ2
 
@@ -96,7 +105,6 @@ bind()
 //EXAMPLE 1 - call
 //Call: The call() method invokes a function with a given this value and arguments provided one by one
 
-/*
 const obj1 = {
   name: "utkarsh",
   rollNumber: 99,
@@ -117,7 +125,6 @@ obj1.func(1, 2); // is this a call site ? yES
 // have I given anyExtraInfo ? YES -> obj1
 
 obj1.func.call(obj2, 22, 222);
-*/
 
 // EXAMPLE - apply
 //Apply: Invokes the function with a given this value and allows you to pass in arguments as an array
@@ -162,14 +169,14 @@ const obj = {
   },
 };
 
-// obj.func();
-// obj.func2();
+obj.func();
+obj.func2();
 
-// setTimeout(obj.func2, 5000);
+setTimeout(obj.func2, 5000);
 
 const funcCopy = obj.func.bind(obj, 80, 90);
 
 setTimeout(funcCopy, 5000);
-// setTimeout(obj.func, 5000); //THIS ALWAYS FOLLOW DEFAULT BINDING
+setTimeout(obj.func, 5000); //THIS ALWAYS FOLLOW DEFAULT BINDING
 
-// googleService(func)
+googleService(func)

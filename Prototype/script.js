@@ -1,3 +1,4 @@
+// https://medium.com/@saravanaeswari22/understanding-of-prototypes-in-javascript-919385ad062a
 /*
 [[Prototype]] -> Objects have hidden property that is either null or reference another object
 That hidden property or object is called PROTOTYPE
@@ -21,7 +22,7 @@ let rabbit = {
 };
 
 rabbit.__proto__ = animal; // sets rabbit.[[Prototype]] = animal
-//this is old way
+// this is old way
 
 // console.dir(rabbit);
 
@@ -58,7 +59,7 @@ The "prototype" property is widely used by the core of JavaScript itself. All bu
 let obj = {};
 
 console.log(Object.prototype === obj.__proto__);
-console.log(obj);
+console.log("obj", obj);
 
 let arr = [1, 2, 3];
 

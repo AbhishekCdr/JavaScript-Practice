@@ -128,7 +128,6 @@ fetch(url) // level 0
 */
 
 // EXAMPLE 5:
-
 /*
 const url = `https://api.kanye.rest/`;
 fetch(url) // level 0
@@ -280,3 +279,35 @@ fetch(url) // level 0
   });
 
   */
+
+// let promise = new Promise((res, rej) => { // promise is created using constructor
+//   let a = 10;
+//   let b = 20;
+
+//   if (a == b) {
+//     res("the promise is resolved");
+//   } else {
+//     rej("the promise is rejected");
+//   }
+// });
+
+// promise
+//   .then((response) => console.log(response))
+//   .catch((reject) => console.log(reject));
+
+// Promise.race() -> the method returns a promise that fulfilles or rejects as soona sone of the promises in an iterable fulfills or rejects, with the value or reason from that promise
+
+/*
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Promise One Successful");
+  }, 499);
+});
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Promise Two Successful");
+  }, 500);
+});
+
+Promise.race([p1, p2]).then(console.log).catch(console.log);
+*/

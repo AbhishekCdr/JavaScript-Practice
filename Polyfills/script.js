@@ -101,6 +101,49 @@ Array.prototype.myForEach = function (cb) {
   }
 };
 
-array.myForEach((value) => {
-  console.log(value);
+// array.myForEach((value) => {
+//   console.log(value);
+// });
+
+// map. filter and reduce
+
+const nums = [1, 2, 3, 4, 5];
+
+const roots = nums.map((num) => {
+  return num * 2;
 });
+console.log(roots);
+
+// Pollyfils of map()
+
+Array.prototype.arrMap = function (cb) {
+  let temp = [];
+  for (let i = 0; i < this.length; i++) {
+    temp.push(cb(this[i], i, this));
+  }
+};
+
+// -------------------------------------------
+
+Array.prototype.arrFilter = function (cb) {
+  let temp = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this)) {
+      temp.push(this[i]);
+    }
+  }
+
+  return temp;
+};
+
+const graterTwo = nums.arrFilter((num) => {
+  return num > 2;
+});
+
+console.log(graterTwo);
+
+const reduceMethod = nums.reduce((acc, curr, i, arr) => {
+  return acc + curr;
+}, 0);
+
+console.log(reduceMethod);
